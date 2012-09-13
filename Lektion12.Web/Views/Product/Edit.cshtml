@@ -14,30 +14,30 @@
     <fieldset>
         <legend>Product</legend>
 
-        @Html.HiddenFor(m => Model.ProductID)
+        @Html.HiddenFor(m => Model.Product.ProductID)
 
         <div class="editor-label">
-            @Html.LabelFor(m => Model.Name)
+            @Html.LabelFor(m => Model.Product.Name)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(m => Model.Name)
-            @Html.ValidationMessageFor(m => Model.Name)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(m => Model.Description)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(m => Model.Description)
-            @Html.ValidationMessageFor(m => Model.Description)
+            @Html.EditorFor(m => Model.Product.Name)
+            @Html.ValidationMessageFor(m => Model.Product.Name)
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(m=> Model.Price)
+            @Html.LabelFor(m => Model.Product.Description)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(m => Model.Price)
-            @Html.ValidationMessageFor(m => Model.Price)
+            @Html.EditorFor(m => Model.Product.Description)
+            @Html.ValidationMessageFor(m => Model.Product.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m=> Model.Product.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => Model.Product.Price)
+            @Html.ValidationMessageFor(m => Model.Product.Price)
         </div>
 
         <div class="editor-label">
