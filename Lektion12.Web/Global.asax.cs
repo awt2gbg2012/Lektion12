@@ -30,10 +30,9 @@ namespace Lektion12.Web
                 "API/{action}/{id}", // URL with parameters
                 new
                 {
-                    controller = "APICategory",
+                    controller = "API",
                     action = "Subcategories",
-                    id =
-                        UrlParameter.Optional
+                    id = UrlParameter.Optional
                 } // Parameter defaults
             );
 
