@@ -29,6 +29,7 @@ namespace Lektion12.Web.Infrastructure
         private void AddBindings()
         {
             ninjectKernel.Bind<IProductRepository>().To<EFProductRepository>();
+            ninjectKernel.Bind<ICategoryRepository>().To<EFCategoryRepository>();
         }
     }
 }
