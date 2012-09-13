@@ -57,3 +57,21 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section Scripts {
+<script type="text/javascript">
+    $(function () { 
+        $('#SelectedID').val(@Model.Product.CategoryID); 
+        $('#Category').change(function() { 
+            var url = "@Url.Content("~/API/Subcategories/")" + $('#Category').val(); 
+            $.getJSON(url, function(data) { 
+                var items = ""; 
+                $.each(data, function(i, category) { 
+                    items += "<option value='" + category.CategoryID + "'>" + category.Name + "</option>"; 
+                }); 
+                $('#SelectedID').html(items); 
+            }); 
+        }); 
+    });
+</script>
+}
