@@ -16,6 +16,5 @@ namespace Lektion12.Web.ViewModels
         public IEnumerable<System.Web.Mvc.SelectListItem> Categories { get; set; }
         public int SubCategoryID { get; set; }
         public IEnumerable<System.Web.Mvc.SelectListItem> Subcategories { get; set; }
-        public string SelectedID { get; set; }
     }
 }

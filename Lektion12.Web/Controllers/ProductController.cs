@@ -100,9 +100,12 @@ namespace Lektion12.Web.Controllers
             var vm = new ProductEditViewModel
             {
                 Product = product,
+                CategoryID = product.Category.ParentID.HasValue 
+                                        ? product.Category.ParentID.Value
+                                        : 0,
                 Categories = _categoryRepo.GetSelectListForCategories(),
-                Subcategories = _categoryRepo.GetSelectListForCategories(product.CategoryID),
-                SelectedID = product.CategoryID
+                SubCategoryID = product.CategoryID,
+                Subcategories = _categoryRepo.GetSelectListForCategories(product.CategoryID)
             };
             
             return View(vm);
@@ -116,7 +119,7 @@ namespace Lektion12.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                vm.Product.CategoryID = vm.SelectedID;
+                vm.Product.CategoryID = vm.SubCategoryID;
                 _productRepo.Save(vm.Product);
                 return RedirectToAction("Index");
             }
