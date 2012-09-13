@@ -18,11 +18,9 @@ namespace Lektion12.Web.Controllers
         private int PageSize { get; set; }
         private IProductRepository _productRepo;
         private ICategoryRepository _categoryRepo;
-        public ProductController(IProductRepository productRepo, 
-                                ICategoryRepository categoryRepo) 
+        public ProductController(IProductRepository productRepo) 
         { 
             _productRepo = productRepo;
-            _categoryRepo = categoryRepo;
             PageSize = 5; 
         }
 
