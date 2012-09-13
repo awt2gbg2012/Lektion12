@@ -13,6 +13,6 @@ namespace Lektion12.Data.Abstract
         void Delete(Category category);
         Category Get(int id);
         IQueryable<Category> GetCategories(int skip = 0, int? take = null, Func<Category, bool> filter = null);
-        List<SelectListItem> GetSelectListForCategories(int? subcategoryID = null);
+        List<SelectListItem> GetSelectListForCategories(int? withSiblingsToCategoryID = null);
     }
 }

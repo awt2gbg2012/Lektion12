@@ -56,5 +56,18 @@ namespace Lektion12.Data.Repositories
                 new SelectListItem { Value = sc.CategoryID.ToString(), Text = sc.Name }
             ).ToList();
         }
+
+        //public SelectList GetSelectListForCategories(int? withSiblingsToCategoryID = null, int? selectedID = null)
+        //{
+        //    int? parentID = withSiblingsToCategoryID.HasValue ? Get(withSiblingsToCategoryID.Value).ParentID
+        //                                                        : null;
+        //    var categoryList = GetCategories(0, null, s => s.ParentID == parentID).OrderBy(c => c.Name).Select(sc =>
+        //        new SelectListItem { Value = sc.CategoryID.ToString(), Text = sc.Name }
+        //    ).ToList();
+
+        //    return new SelectList(categoryList, "Value", "Text", selectedID.HasValue 
+        //                    ? selectedID.Value.ToString() 
+        //                    : categoryList.FirstOrDefault().Value);
+        //}
     }
 }
