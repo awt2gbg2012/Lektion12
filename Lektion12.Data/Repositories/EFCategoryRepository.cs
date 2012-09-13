@@ -47,5 +47,14 @@ namespace Lektion12.Data.Repositories
             else
                 return filteredResult.OrderBy(c => c.CategoryID).Skip(skip).Take(take.Value);
         }
+
+        public List<SelectListItem> GetSelectListForCategories(int? withSiblingsToCategoryID = null)
+        {
+            int? parentID = withSiblingsToCategoryID.HasValue ? Get(withSiblingsToCategoryID.Value).ParentID
+                                                                : null;
+            return GetCategories(0, null, s => s.ParentID == parentID).OrderBy(c => c.Name).Select(sc =>
+                new SelectListItem { Value = sc.CategoryID.ToString(), Text = sc.Name }
+            ).ToList();
+        }
     }
 }
