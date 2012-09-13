@@ -112,14 +112,15 @@ namespace Lektion12.Web.Controllers
         // POST: /Product/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Product product)
+        public ActionResult Edit(ProductEditViewModel vm)
         {
             if (ModelState.IsValid)
             {
-                _productRepo.Save(product);
+                vm.Product.CategoryID = vm.SelectedID;
+                _productRepo.Save(vm.Product);
                 return RedirectToAction("Index");
             }
-            return View(product);
+            return View(vm);
         }
 
         //
