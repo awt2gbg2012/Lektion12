@@ -1,0 +1,51 @@
+﻿@model Lektion12.Data.Entities.Product
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Product</legend>
+
+        @Html.HiddenFor(m => Model.ProductID)
+
+        <div class="editor-label">
+            @Html.LabelFor(m => Model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => Model.Name)
+            @Html.ValidationMessageFor(m => Model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m => Model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => Model.Description)
+            @Html.ValidationMessageFor(m => Model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(m=> Model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(m => Model.Price)
+            @Html.ValidationMessageFor(m => Model.Price)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

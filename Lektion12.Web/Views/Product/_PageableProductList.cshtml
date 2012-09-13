@@ -1,0 +1,25 @@
+﻿@model Lektion12.Web.ViewModels.ProductListViewModel
+
+<div>
+    Pages: @Html.PageLinks(Model.PagingInfo, x => Url.Action("ProductList", new {page = x}))
+</div>
+
+<div id="products" class="products">
+    <div class="productHeaders">
+        <div class="productRow">
+            <div class="productCell">
+                ID
+            </div >
+            <div class="productCell">
+                Name
+            </div>
+            <div class="productCell">
+                Price
+            </div>
+            <div class="productCell"></div>
+        </div>
+    </div>
+    <div id="productData" class="productBody">
+        @Html.Partial("_List", Model.Products)
+    </div>
+</div>

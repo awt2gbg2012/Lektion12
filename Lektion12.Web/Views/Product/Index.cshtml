@@ -1,0 +1,43 @@
+﻿@model int
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div>
+@using (Ajax.BeginForm("ProductList",
+                            new AjaxOptions { InsertionMode = InsertionMode.Replace,
+                                                LoadingElementId = "progress",
+                                                UpdateTargetId = "filteredList" })) {
+    @Html.TextBox("searchString");
+    <input type="submit" value="Search" />
+}
+</div>
+<div id="progress">
+Loading data...
+</div>
+
+<div id="filteredList">
+
+@Html.Action("ProductList", new { page = Model })
+
+</div>
+
+@section Scripts {
+<script type="text/javascript">
+    $(function () {
+        $('.pageNumber').click(function () {
+            var productDiv = $('#productData').addClass('loading');
+            var pageNo = parseInt($(this).html());
+            $.get('@Url.Action("List")', { 'page': pageNo }, function (data) {
+                productDiv.html(data).removeClass('loading');
+            });
+            return false;
+        });
+    });
+</script>
+}

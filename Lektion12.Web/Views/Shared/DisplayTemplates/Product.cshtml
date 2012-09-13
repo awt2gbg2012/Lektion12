@@ -1,0 +1,16 @@
+﻿@model Lektion12.Data.Entities.Product
+
+<div class="productRow">
+    <div class="productCell">
+        @Model.ProductID
+    </div>
+    <div class="productCell">
+        @Html.ActionLink(Model.Name, "Edit", new { id = Model.ProductID }, null)
+    </div>
+    <div class="productCell">
+        @Model.Price.ToString("c")
+    </div>
+    <div class="productCell">
+        @Html.ActionLink("Delete", "Delete", new { id = Model.ProductID }, null)
+    </div>
+</div>
