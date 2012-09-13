@@ -40,6 +40,14 @@
             @Html.ValidationMessageFor(m => Model.Price)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(m => Model.Product.Category)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Category", Model.Categories)
+            @Html.DropDownListFor(c => c.SelectedID, Model.Subcategories)
+        </div>
+
         <p>
             <input type="submit" value="Save" />
         </p>
