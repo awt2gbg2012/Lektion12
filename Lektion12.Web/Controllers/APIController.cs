@@ -13,11 +13,12 @@ namespace Lektion12.Web.Controllers
         public APIController(ICategoryRepository repo) { _repo = repo; }
 
         //
-        // GET: /API/
+        // GET: /API/Subcategories
 
-        public ActionResult Index()
+        public JsonResult Subcategories(int id)
         {
-            return View();
+            return Json(_repo.GetCategories(0, null, c => c.ParentID == id).ToArray(),
+            JsonRequestBehavior.AllowGet);
         }
 
     }
