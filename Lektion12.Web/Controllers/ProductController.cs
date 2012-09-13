@@ -18,8 +18,10 @@ namespace Lektion12.Web.Controllers
         private int PageSize { get; set; }
         private IProductRepository _productRepo;
         private ICategoryRepository _categoryRepo;
-        public ProductController(IProductRepository productRepo) 
-        { 
+        public ProductController(IProductRepository productRepo,
+                                ICategoryRepository categoryRepo) 
+        {
+            _categoryRepo = categoryRepo;
             _productRepo = productRepo;
             PageSize = 5; 
         }
@@ -95,8 +97,15 @@ namespace Lektion12.Web.Controllers
         public ActionResult Edit(int id)
         {
             var product = _productRepo.Get(id);
+            var vm = new ProductEditViewModel
+            {
+                Product = product,
+                Categories = _categoryRepo.GetSelectListForCategories(),
+                Subcategories = _categoryRepo.GetSelectListForCategories(product.CategoryID),
+                SelectedID = product.CategoryID
+            };
             
-            return View(product);
+            return View(vm);
         }
 
         //
