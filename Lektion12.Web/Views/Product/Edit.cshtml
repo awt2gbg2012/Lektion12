@@ -68,7 +68,7 @@
         Globalize.culture('se'); // Ny rad för globalization
 
         $('#CategoryID').change(function () {
-            var url = "@Url.Content("~/API/Subcategories/")" + $('#Category').val();
+            var url = "@Url.Content("~/API/Subcategories/")" + $('#CategoryID').val();
  
             $.getJSON(url, function(data) {
                 var items = "";
